@@ -15,9 +15,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: postgres
+  password:
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
 
 
 development:
@@ -82,8 +85,6 @@ production:
   primary: &primary_production
     <<: *default
     database: todo_react_on_rails_production
-    username: todo_react_on_rails
-    password: <%= ENV["TODO_REACT_ON_RAILS_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: todo_react_on_rails_production_cache
