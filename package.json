@@ -1,5 +1,9 @@
 {
   "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": "18.19.1",
+    "yarn": "1.22.22"
+  },
   "name": "app",
   "private": true,
   "version": "0.1.0",
