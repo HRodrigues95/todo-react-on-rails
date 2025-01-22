@@ -24,13 +24,13 @@
 # Any libraries that use a connection pool or another resource pool should
 # be configured to provide at least as many connections as the number of
 # threads. This includes Active Record's `pool` parameter in `database.yml`.
-workers Integer(ENV["WEB_CONCURRENCY"] || 2)
+workers Integer(ENV["WEB_CONCURRENCY"] || 0)
 threads_count = Integer(ENV["RAILS_MAX_THREADS"] || 5)
 threads threads_count, threads_count
 
 preload_app!
 
-rackup      DefaultRackup
+rackup      DefaultRackup if defined?(DefaultRackup)
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port        ENV["PORT"]     || 3000
 environment ENV["RACK_ENV"] || "development"
