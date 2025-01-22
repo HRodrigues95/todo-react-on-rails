@@ -30,7 +30,7 @@ threads threads_count, threads_count
 
 preload_app!
 
-rackup      DefaultRackup
+rackup      DefaultRackup if defined?(DefaultRackup)
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port        ENV["PORT"]     || 3000
 environment ENV["RACK_ENV"] || "development"
